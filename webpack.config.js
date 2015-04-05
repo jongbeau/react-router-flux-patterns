@@ -18,12 +18,11 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.js$/, exclude: /node_modules|bower_components/, loaders: ["babel-loader"]},
-      { test: /\.jsx$/, exclude: /node_modules|bower_components/, loaders: ["react-hot", "babel-loader", "eslint-loader"]}
+      { test: /\.jsx$/, exclude: /node_modules|bower_components/, loaders: ["react-hot", "babel-loader"]}
     ]
   },
   plugins: [
-    new webpack.NoErrorsPlugin(),
-    definePlugin
+    new webpack.NoErrorsPlugin()
   ]
 }
 
