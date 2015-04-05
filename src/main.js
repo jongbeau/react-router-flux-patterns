@@ -9,8 +9,6 @@ RouterContainer.set(Router.create({
   location: Router.HistoryLocation
 }))
 
-$(function () {
-  RouterContainer.get().run(function (Handler, state) {
-    React.render(<Handler {...state} />, document.body)
-  })
+RouterContainer.get().run(function (Handler, state) {
+  React.render(<Handler {...state} />, document.body)
 })
