@@ -1,6 +1,7 @@
 var React = require('react')
 var ItemActions = require('../actions/item-actions.js')
 var ItemStore = require('../stores/item-store.js')
+var {Link} = require('react-router')
 
 module.exports = React.createClass({
   getInitialState() {
@@ -8,18 +9,25 @@ module.exports = React.createClass({
   },
   componentDidMount() {
     ItemActions.getItems()
-    this.listen(ItemStore, this.onChange)
+    ItemStore.listen(this.onChange)
   },
   componentWillUnmount() {
-    this.unlisten(ItemStore, this.onChange)
+    ItemStore.unlisten(this.onChange)
   },
   onChange() {
-    this.state = ItemStore.getState()
+    this.setState(ItemStore.getState())
   },
   render() {
+    var items = this.state.items.map( (item) => {
+      return <li><Link to='item' params={{id: item.id}}>{item.item}</Link></li>
+    })
     return (
-      <h1>All Items</h1>
-      {this.state.items.map()}
+      <div>
+        <h1>All Items</h1>
+        <ul>
+          {items}
+        </ul>
+      </div>
     )
   }
 })

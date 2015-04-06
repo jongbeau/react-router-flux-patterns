@@ -1,4 +1,5 @@
 var API = require('../utils/api.js')
+var alt = require('../alt-module.js')
 
 class ItemActions {
   constructor() {
@@ -11,7 +12,10 @@ class ItemActions {
     })
   }
   getItem(id) {
-
+    API.getItem(id)
+    .then((response) => {
+      this.actions.gotItem(response)
+    })
   }
   addItem(id) {
 

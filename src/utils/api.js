@@ -8,24 +8,26 @@ var data = {
   nextId: 4
 }
 
-var api = {
+var delay = 1000
+
+module.exports = {
   getItems: () => {
     return new Promise( (resolve, reject) => {
       setTimeout( () => {
-        response = {
+        let response = {
           items: data.items
         }
         resolve(response)
-      }, 2000)
+      }, delay)
     })
   },
 
   getItem: (id) => {
     return new Promise( (resolve, reject) => {
       setTimeout( () => {
-        response = data.items[id]
+        let response = data.items[id]
         resolve(response)
-      }, 2000)
+      }, delay)
     })
   },
 
@@ -35,9 +37,9 @@ var api = {
         let id = data.nextId
         data.items.push({id: id, item: 'item'})
         data.nextId += 1
-        response = data.items[id]
+        let response = data.items[id]
         resolve(response)
-      }, 2000)
+      }, delay)
     })
   }
 }
