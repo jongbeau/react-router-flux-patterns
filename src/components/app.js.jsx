@@ -8,7 +8,6 @@ module.exports = React.createClass({
         <h1>React Router Flux Patterns!</h1>
         <ul>
           <li><Link to='items'>Item List</Link></li>
-          <li><Link to='item' params={{id: 1}}>Item</Link></li>
           <li><Link to='new'>New Item</Link></li>
         </ul>
         <div>

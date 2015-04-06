@@ -6,7 +6,7 @@ var path = require('path')
 module.exports = {
   debug: true,
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
+    'webpack-dev-server/client?http://localhost:8081',
     'webpack/hot/only-dev-server',
     "./src/main.js",
   ],

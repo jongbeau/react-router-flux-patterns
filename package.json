@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.js --devtool eval --progress --colors --content-base public --hot --history-api-fallback"
+    "dev": "webpack-dev-server --port 8081 --config webpack.config.js --devtool eval --progress --colors --content-base public --hot --history-api-fallback"
   },
   "dependencies": {
     "alt": "^0.14.4",
