@@ -13,5 +13,6 @@ While working with react, react-router, and flux I've encountered some common pa
 * Fetch data from API when a component loads
 * Write data to API
 * Read/Write API and redirect based on response 
-* Handle API failuers
-* Authentication with redirect
+* Handle API failures
+* Authentication with redirect (not done)
+* Delare data dependencies and block rendering until data arrives (not done)
