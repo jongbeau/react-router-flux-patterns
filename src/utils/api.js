@@ -35,7 +35,7 @@ module.exports = {
     return new Promise( (resolve, reject) => {
       setTimeout( () => {
         let id = data.nextId
-        data.items.push({id: id, item: 'item'})
+        data.items.push({id: id, item: item})
         data.nextId += 1
         let response = data.items[id]
         resolve(response)

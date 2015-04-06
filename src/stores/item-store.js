@@ -16,6 +16,9 @@ class ItemStore {
   onGotItem(response) {
     this.items[response.id] = response
   }
+  onAddedItem(response) {
+    this.items[response.id] = response
+  }
 
   getItem(id) {
     return this.getState().items[id] || {}

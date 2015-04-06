@@ -17,8 +17,12 @@ class ItemActions {
       this.actions.gotItem(response)
     })
   }
-  addItem(id) {
-
+  addItem(item, cb) {
+    API.addItem(item)
+    .then( (response) => {
+      this.actions.addedItem(response)
+      cb(response)
+    })
   }
 }
 
