@@ -10,7 +10,11 @@ module.exports = React.createClass({
     return ItemStore.getItem(this.getId())
   },
   componentDidMount() {
+    //if API call fails, catch the error
     ItemActions.getItem(this.getId())
+    .catch( (err) => {
+      this.setState({error: err})
+    })
     ItemStore.listen(this.onChange)
   },
   componentWillUnmount() {
@@ -27,6 +31,7 @@ module.exports = React.createClass({
     if(this.state.id !== undefined) {
       return (
         <div>
+          {this.state.error}
           <h1>Item: {this.state.id}</h1>
           <div>{this.state.item}</div> 
         </div>
@@ -34,7 +39,10 @@ module.exports = React.createClass({
     }
     else {
       return (
-        <div>Loading...</div>
+        <div>
+          {this.state.error}
+          <div>Loading...</div>
+        </div>
       )
     }
   }

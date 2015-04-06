@@ -5,23 +5,29 @@ class ItemActions {
   constructor() {
     this.generateActions('gotItems', 'gotItem', 'addedItem')
   }
+
+  //always return a promise
+  //don't catch here, let it bubble up to the component
+
   getItems() {
-    API.getItems()
+    return API.getItems()
     .then((response) => {
       this.actions.gotItems(response)
+      return response
     })
   }
   getItem(id) {
-    API.getItem(id)
+    return API.getItem(id)
     .then((response) => {
       this.actions.gotItem(response)
+      return response
     })
   }
-  addItem(item, cb) {
-    API.addItem(item)
+  addItem(item, cb=null) {
+    return API.addItem(item)
     .then( (response) => {
       this.actions.addedItem(response)
-      cb(response)
+      return response
     })
   }
 }

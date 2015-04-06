@@ -26,7 +26,13 @@ module.exports = {
     return new Promise( (resolve, reject) => {
       setTimeout( () => {
         let response = data.items[id]
-        resolve(response)
+        if(response !== undefined) {
+          resolve(response)
+        }
+        else {
+          //reject will bubble up to the component
+          reject('invalid id')
+        }
       }, delay)
     })
   },

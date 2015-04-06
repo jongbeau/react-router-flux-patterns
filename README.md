@@ -7,4 +7,5 @@ While working with react, react-router, and flux I've encountered some common pa
 * Fetch data from API when a component loads
 * Write data to API
 * Read/Write API and redirect based on response 
+* Handle API failuers
 * Authentication with redirect

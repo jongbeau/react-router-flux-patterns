@@ -8,7 +8,9 @@ module.exports = React.createClass({
   },
   add() {
     let item = this.refs.input.getDOMNode().value
-    ItemActions.addItem(item, (response) => {
+    //Action returns a promise which can be chained for redirect
+    ItemActions.addItem(item)
+    .then( (response) => {
       this.context.router.transitionTo('item', {id: response.id})
     })
   },
